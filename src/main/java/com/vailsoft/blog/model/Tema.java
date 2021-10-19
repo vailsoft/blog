@@ -1,6 +1,9 @@
 package com.vailsoft.blog.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,10 +18,10 @@ public class Tema {
     private Long id;
 
     @NotNull
-    @Size(min = 5, max=20)
+    @Size(min = 2, max=100)
     private String descricao;
 
-    @NotNull
+
     @OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("tema")
     private List<Postagem> postagens;
@@ -42,5 +45,7 @@ public class Tema {
     public void setPostagens(List<Postagem> postagens) {
         this.postagens = postagens;
     }
+
+
 
 }
