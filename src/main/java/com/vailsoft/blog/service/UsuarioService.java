@@ -26,7 +26,7 @@ public class UsuarioService {
 
    }
 
-   public Optional<UserLogin> login(Optional<UserLogin> user){
+   public Optional<UserLogin> logar(Optional<UserLogin> user){
        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
        Optional<Usuario> usuario = repository.findByUsuario(user.get().getUsuario());
 
